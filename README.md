@@ -1,3 +1,47 @@
+# Px2XY
+
+Px2XY は画像中の粒子の重心を検出し、参照点（RefPoint）を使ってピクセル座標を実世界座標に変換するための GUI ツールです。
+
+## 特徴
+- 画像から重心（centroids）を抽出
+- 参照点を追加・編集してアフィン / 類似変換を推定
+- 転置表示の参照テーブルと即時プレビュー
+
+## 必要環境
+- Python 3.10+（環境に合わせて調整してください）
+- 依存パッケージは `requirements.txt` を参照
+
+## インストール（開発用）
+```powershell
+cd C:\Python\Px2XY
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
+
+## 実行方法
+GUI を起動するには:
+```powershell
+py Main.py
+```
+
+## 使い方（簡易）
+- `Open Image` で画像を開く
+- `Add Ref` で参照点追加モードにして画像上で参照点をクリック
+- 左の参照テーブルで Obs.X/Obs.Y/Obs.Z を編集して再計算
+
+## 開発・貢献
+- バグ報告・機能要望は GitHub Issues へお願いします
+- プルリクエスト歓迎
+
+## ライセンス
+このリポジトリは `LICENSE` の定める条件に従います。
+
+## 引用
+リリース済みの DOI がある場合はここに追記してください（Zenodo 経由で DOI を発行することを推奨）。
+
+---
+（この README は自動生成されました。必要に応じて追記・修正してください）
 # Px2XY — Centroid Finder
 
 Px2XY は画像をポスタリゼーション（色クラスタリング）して領域ごとの重心を検出・表示する GUI ツールです。
