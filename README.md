@@ -13,93 +13,73 @@ Px2XY は画像中の粒子の重心を検出し、参照点（RefPoint）を使
 
 ## インストール（開発用）
 ```powershell
+# Px2XY — Centroid to Real-World Coordinate Converter
+
+Px2XY detects region centroids in images and converts pixel coordinates to real-world coordinates using user-defined reference points. It provides an interactive GUI for centroid inspection, reference-point editing, and export.
+
+## Key Features
+
+- Detect centroids from segmented image regions (posterization/clustering).
+- Add and edit reference points to estimate affine/similarity transforms.
+- Interactive, transposed reference table view for quick editing and verification.
+- Export coordinates and reference data (CSV supported).
+
+## Requirements
+
+- Python 3.10 or newer (adjust as needed for your environment).
+- See `requirements.txt` for Python package dependencies.
+
+## Install (development)
+
+PowerShell example:
+
+```powershell
 cd C:\Python\Px2XY
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-```
-
-## 実行方法
-GUI を起動するには:
-```powershell
-py Main.py
-```
-
-## 使い方（簡易）
-- `Open Image` で画像を開く
-- `Add Ref` で参照点追加モードにして画像上で参照点をクリック
-- 左の参照テーブルで Obs.X/Obs.Y/Obs.Z を編集して再計算
-
-## 開発・貢献
-- バグ報告・機能要望は GitHub Issues へお願いします
-- プルリクエスト歓迎
-
-## ライセンス
-このリポジトリは `LICENSE` の定める条件に従います。
-
-## 引用
-リリース済みの DOI がある場合はここに追記してください（Zenodo 経由で DOI を発行することを推奨）。
-
----
-（この README は自動生成されました。必要に応じて追記・修正してください）
-# Px2XY — Centroid Finder
-
-Px2XY は画像をポスタリゼーション（色クラスタリング）して領域ごとの重心を検出・表示する GUI ツールです。
-主に画像解析、顕微鏡画像の特徴点抽出、参照点設定・エクスポートに使えます。
-
-## 主な機能
-- 画像の読み込みと表示（多数のフォーマットをサポート）
-- ポスタリゼーションによる領域クラスタリングと重心検出
-- PyQt5 ベースの GUI（参照点の追加・編集、重心の選択、CSV 形式でのエクスポート等）
-- 自動/手動更新モード、軽負荷モード対応
-
-## 必要条件
-- Python 3.8 以上
-- 以下の主要パッケージ（詳細は `requirements.txt` を参照）
-  - numpy
-  - opencv-python
-  - PyQt5
-
-注: 実行環境や用途に応じて追加パッケージが必要になる場合があります。
-
-## インストール
-仮想環境を作成し、依存パッケージをインストールする例（PowerShell）:
-
-```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-## 実行方法（簡易）
-GUI を起動するにはリポジトリルートで:
+## Run
+
+From the repository root:
 
 ```powershell
 python Main.py
 ```
 
-Main.py をコマンドライン引数で画像パスを与えて起動できる場合は、次のように実行します:
+You can optionally pass an image path:
 
 ```powershell
 python Main.py path\to\image.jpg
 ```
 
-## 使い方（概要）
-- PosterLevel, Min Area, Trim を調整して興味ある領域の抽出精度を調整します。
-- 参照点（Ref）を追加して座標を固定・保存できます。
-- 重心はテーブルから選択、エクスポート可能です。
+## Basic Usage
 
-詳しい操作手順や図は `paper.md`（JOSS 投稿用）およびドキュメントで説明します。
+- Open an image with `Open Image`.
+- Use `Add Ref` to enter reference-point mode, then click image points to add reference observations.
+- Edit `Obs.X` / `Obs.Y` (and `Obs.Z` if applicable) in the reference table to refine the transform.
+- The left transposed table shows residuals and transformed coordinates for quick inspection.
 
-## ライセンス
-このプロジェクトは `LICENSE` に記載のライセンス下で公開されています（例: MIT）。
+## Development & Contribution
 
-## 引用
-このソフトウェアを使った研究を報告する場合は `CITATION.cff` を確認してください。
+- Report bugs and feature requests via GitHub Issues.
+- Pull requests are welcome — please include tests or reproduction steps when possible.
 
-## 貢献
-PR や Issue を歓迎します。コードスタイルやテストを整備した上でプルリクエストを送ってください。
+## Citation
 
-## 作者
-あなたの名前（適宜更新してください）
+If you publish results generated with this software, please cite this repository. When a DOI is available (via Zenodo), add it here and update `CITATION.cff`.
+
+## License
+
+See the `LICENSE` file in the repository for license terms (e.g. MIT).
+
+---
+
+If you'd like, I can also:
+
+- Commit this change and push a branch/PR.
+- Produce a shorter `README-short.md` for display on PyPI/GitHub release pages.
+- Draft a `paper.md` for JOSS submission using the repository metadata and release DOI (once available).
+
